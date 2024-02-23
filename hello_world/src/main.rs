@@ -25,4 +25,18 @@ for pik in numbers.iter_mut() {
     println!("{}", pik);
 }
 
+fn say_dog() -> String {
+    let dog = "woof";
+    dog.to_string()
+}
+
+println!("{}",say_dog());
+
+let (a, b) = (5, 10);
+println!("{}", a*b);
+
+let int: i32 = 32;
+let bint: u128 = int.try_into().unwrap();
+println!("{bint}");
+
 }
