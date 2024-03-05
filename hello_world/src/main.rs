@@ -39,4 +39,41 @@ let int: i32 = 32;
 let bint: u128 = int.try_into().unwrap();
 println!("{bint}");
 
+// SCOPE
+
+let c = 11;
+{
+    let c = 22;
+    println!("c i statement block = {c}");
+}
+println!("c uden for block ={c}");
+
+
+let s1 = String::from("hello"); // s1 owns the string
+let len = calculate_length(&s1); // s1 is borrowed (immutable reference)
+println!("The length of '{}' is {}.", s1, len);
+
+let s2 = String::from("hello");
+let len2 = calculate_length2(s2); // Ownership of s1 is moved to the function
+
+// println!("The length of '{}' is {}.", s1, len); // This would cause a compile-time error because s1 is no longer valid here
+println!("The length of the string is {}.", len2);
+
+
+
+
+
+
+
+}
+
+// This function takes a reference to a String and returns its length
+// without taking ownership of it, so s1 remains valid after the call.
+fn calculate_length(s: &String) -> usize {
+    s.len()
+}
+
+// This function takes ownership of the String, so it is dropped when the function ends.
+fn calculate_length2(s: String) -> usize {
+    s.len()
 }
